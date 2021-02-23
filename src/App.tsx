@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react'
 
-function App() {
+import { RootStore } from './store'
+import { useSelector, useDispatch } from 'react-redux'
+
+import { getPosts } from './actions/posts'
+
+const App = () => {
+  const dispatch = useDispatch()
+  const postsState = useSelector((state: RootStore) => state.posts)
+
+  useEffect(() => {
+    dispatch(getPosts())
+  }, [dispatch])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      {postsState.posts && (
+        <>
+          {postsState.posts.map((post) => (
+            <>
+              <p>{post.id}</p>
+              <p>{post.title}</p>
+              <p>{post.body}</p>
+              <br />
+            </>
+          ))}
+        </>
+      )}
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
