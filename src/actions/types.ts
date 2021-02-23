@@ -3,13 +3,19 @@ export const POSTS_LOADING = 'POSTS_LOADING'
 export const POSTS_FAIL = 'POSTS_FAIL'
 
 export type PostsActionTypes =
-  | { type: 'POSTS_SUCCESS'; payload: [PostType] }
+  | { type: 'POSTS_SUCCESS'; payload: PostsType }
   | { type: 'POSTS_LOADING' }
   | { type: 'POSTS_FAIL' }
 
 export type PostType = {
-  userId: number
-  id: number
+  subreddit: string
   title: string
-  body: string
+  visited: boolean
+  num_comments: number
+  id: number
+  permalink: string
+  is_video: boolean
+  thumbnail: string
 }
+
+export type PostsType = [PostType]

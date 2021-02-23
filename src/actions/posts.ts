@@ -13,10 +13,22 @@ export const getPosts = () => async (dispatch: Dispatch<PostsActionTypes>) => {
       type: POSTS_LOADING,
     })
 
-    const res = await axios.get(`https://jsonplaceholder.typicode.com/posts`)
+    const res = await axios.get(`https://www.reddit.com/r/popular.json`)
+
+    const posts = res.data.data.children.map((post: any) => ({
+      subreddit: post.data.subreddit,
+      title: post.data.title,
+      visited: post.data.visited,
+      num_comments: post.data.num_comments,
+      id: post.data.id,
+      permalink: post.data.permalink,
+      is_video: post.data.is_video,
+      thumbnail: post.data.thumbnail,
+    }))
+
     dispatch({
       type: POSTS_SUCCESS,
-      payload: res.data,
+      payload: posts,
     })
   } catch (e) {
     dispatch({

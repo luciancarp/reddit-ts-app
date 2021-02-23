@@ -3,12 +3,12 @@ import {
   POSTS_LOADING,
   POSTS_FAIL,
   PostsActionTypes,
-  PostType,
+  PostsType,
 } from '../actions/types'
 
 type InitialStateType = {
   loading: boolean
-  posts?: [PostType]
+  posts?: PostsType
 }
 
 const initialState: InitialStateType = {

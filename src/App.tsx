@@ -19,9 +19,9 @@ const App = () => {
         <>
           {postsState.posts.map((post) => (
             <>
-              <p>{post.id}</p>
-              <p>{post.title}</p>
-              <p>{post.body}</p>
+              <p>title: {post.title}</p>
+              <p>subreddit: {post.subreddit}</p>
+              <p>Num. comments: {post.num_comments}</p>
               <br />
             </>
           ))}
