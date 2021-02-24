@@ -1,33 +1,19 @@
-import React, { useEffect } from 'react'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
-import { RootStore } from './store'
-import { useSelector, useDispatch } from 'react-redux'
+import { Provider } from 'react-redux'
+import store from './store'
 
-import { getPosts } from './actions/posts'
+import Posts from './components/Posts'
 
 const App = () => {
-  const dispatch = useDispatch()
-  const postsState = useSelector((state: RootStore) => state.posts)
-
-  useEffect(() => {
-    dispatch(getPosts())
-  }, [dispatch])
-
   return (
-    <div className='App'>
-      {postsState.posts && (
-        <>
-          {postsState.posts.map((post) => (
-            <>
-              <p>title: {post.title}</p>
-              <p>subreddit: {post.subreddit}</p>
-              <p>Num. comments: {post.num_comments}</p>
-              <br />
-            </>
-          ))}
-        </>
-      )}
-    </div>
+    <Provider store={store}>
+      <Router>
+        <Switch>
+          <Route exact path='/' component={Posts} />
+        </Switch>
+      </Router>
+    </Provider>
   )
 }
 
