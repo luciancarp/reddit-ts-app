@@ -4,6 +4,7 @@ import { connect, ConnectedProps } from 'react-redux'
 import { getPosts } from '../actions/posts'
 import { PostType } from '../actions/types'
 import { RootStore } from '../store'
+import ThemeSwitcher from './ThemeSwitcher'
 
 const mapStateToProps = (state: RootStore) => ({
   posts: state.posts,
@@ -19,6 +20,7 @@ const Posts = ({ getPosts, posts }: Props) => {
 
   return (
     <div>
+      <ThemeSwitcher />
       {posts.posts && (
         <>
           {posts.posts.map((post: PostType) => (
