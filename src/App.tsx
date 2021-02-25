@@ -7,6 +7,7 @@ import { ThemeProvider } from './style/Theme'
 import GlobalStyle from './style/GlobalStyle'
 
 import Posts from './components/Posts'
+import Layout from './components/Layout'
 
 const App = () => {
   return (
@@ -14,9 +15,11 @@ const App = () => {
       <ThemeProvider>
         <GlobalStyle />
         <Router>
-          <Switch>
-            <Route exact path='/' component={Posts} />
-          </Switch>
+          <Layout>
+            <Switch>
+              <Route exact path='/' component={Posts} />
+            </Switch>
+          </Layout>
         </Router>
       </ThemeProvider>
     </Provider>
