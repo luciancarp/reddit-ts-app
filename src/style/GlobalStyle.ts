@@ -536,7 +536,6 @@ body,
   h3 {
     margin-bottom: ${spaces.narrow};
 
-    font-weight: bold;
     font-size: ${fontSizes.medium}
   }
 

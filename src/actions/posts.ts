@@ -29,6 +29,7 @@ export const getPosts = (shownSubreddit: string) => async (
       permalink: post.data.permalink,
       is_video: post.data.is_video,
       thumbnail: post.data.thumbnail,
+      author: post.data.author,
     }))
 
     dispatch({

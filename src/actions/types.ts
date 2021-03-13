@@ -19,6 +19,7 @@ export type PostType = {
   permalink: string
   is_video: boolean
   thumbnail: string
+  author: string
 }
 
 export type PostsType = [PostType]

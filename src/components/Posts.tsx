@@ -9,6 +9,9 @@ import styled from 'styled-components'
 
 import PostsHeader from './PostsHeader'
 import ThemeSwitcher from './ThemeSwitcher'
+import PostItem from './PostItem'
+
+import { spaces } from '../style/global'
 
 const mapStateToProps = (state: RootStore) => ({
   posts: state.posts,
@@ -27,22 +30,29 @@ const Posts = ({ getPosts, posts }: Props) => {
       <ThemeSwitcher />
 
       <PostsHeader />
-      {posts.posts && (
-        <>
-          {posts.posts.map((post: PostType) => (
-            <>
-              <p>title: {post.title}</p>
-              <p>subreddit: {post.subreddit}</p>
-              <p>Num. comments: {post.num_comments}</p>
-              <br />
-            </>
-          ))}
-        </>
-      )}
+      <PostsContainer>
+        {posts.posts && (
+          <>
+            {posts.posts.map((post: PostType) => (
+              <PostItem
+                title={post.title}
+                subreddit={post.subreddit}
+                num_comments={post.num_comments}
+                author={post.author}
+              />
+            ))}
+          </>
+        )}
+      </PostsContainer>
     </Container>
   )
 }
 
 const Container = styled.div``
+
+const PostsContainer = styled.div`
+  padding: ${spaces.narrow};
+  margin: ${spaces.wide} 0 ${spaces.wide} 0;
+`
 
 export default connector(Posts)

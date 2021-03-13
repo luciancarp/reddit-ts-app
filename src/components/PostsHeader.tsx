@@ -27,9 +27,12 @@ const Container = styled.div`
   top: 0;
   z-index: 1;
 
-  padding: ${spaces.regular} 0 ${spaces.regular} 0;
+  padding: ${spaces.regular} ${spaces.narrow} ${spaces.regular} ${spaces.narrow};
 
   background-color: ${(props) => props.theme.background};
+  border-style: solid;
+  border-color: ${(props) => props.theme.text};
+  border-width: 0 0 2px 0;
 
   display: flex;
   flex-direction: row;
