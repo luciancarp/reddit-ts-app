@@ -3,6 +3,7 @@ import {
   POSTS_SUCCESS,
   POSTS_LOADING,
   POSTS_FAIL,
+  SET_SHOWNSUBREDDIT,
   PostsActionTypes,
 } from './types'
 import axios from 'axios'
@@ -35,4 +36,13 @@ export const getPosts = () => async (dispatch: Dispatch<PostsActionTypes>) => {
       type: POSTS_FAIL,
     })
   }
+}
+
+export const setShownSubreddit = (shownSubreddit: string) => (
+  dispatch: Dispatch<PostsActionTypes>
+) => {
+  dispatch({
+    type: SET_SHOWNSUBREDDIT,
+    payload: shownSubreddit,
+  })
 }

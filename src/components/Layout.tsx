@@ -5,6 +5,8 @@ import { RootStore } from '../store'
 
 import Header from './Header'
 
+import { spaces } from '../style/global'
+
 const mapStateToProps = (state: RootStore) => ({
   posts: state.posts,
 })
@@ -16,8 +18,7 @@ const Layout = ({ posts, children }: Props) => {
   return (
     <Container>
       <Header />
-      {posts.posts && <p>Number of posts: {posts.posts.length}</p>}
-      <main>{children}</main>
+      <Content>{children}</Content>
     </Container>
   )
 }
@@ -26,6 +27,14 @@ const Container = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+`
+
+const Content = styled.main`
+  margin: 0 auto;
+
+  max-width: 900px;
+
+  padding-top: ${spaces.regular};
 `
 
 export default connector(Layout)

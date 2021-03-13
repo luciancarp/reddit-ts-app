@@ -45,6 +45,7 @@ export type ThemeType = {
   primary: string
   background: string
   text: string
+  highlight: string
 }
 
 export type ThemesType = ThemeType[]
@@ -54,6 +55,7 @@ export const dark = {
   primary: '#ff4500',
   background: '#000',
   text: '#eee',
+  highlight: 'rgba(238, 238, 238, 0.3)',
 }
 
 export const light = {
@@ -61,6 +63,7 @@ export const light = {
   primary: '#ff4500',
   background: '#eee',
   text: '#1a1a1a',
+  highlight: 'rgba(26, 26, 26, 0.3)',
 }
 
 export const themes: ThemesType = [light, dark]
