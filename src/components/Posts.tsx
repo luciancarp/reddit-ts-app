@@ -15,8 +15,8 @@ type Props = PropsFromRedux & {}
 
 const Posts = ({ getPosts, posts }: Props) => {
   useEffect(() => {
-    getPosts()
-  }, [getPosts])
+    getPosts(posts.shownSubreddit)
+  }, [getPosts, posts.shownSubreddit])
 
   return (
     <div>

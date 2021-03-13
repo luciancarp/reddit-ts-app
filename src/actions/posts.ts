@@ -8,13 +8,17 @@ import {
 } from './types'
 import axios from 'axios'
 
-export const getPosts = () => async (dispatch: Dispatch<PostsActionTypes>) => {
+export const getPosts = (shownSubreddit: string) => async (
+  dispatch: Dispatch<PostsActionTypes>
+) => {
   try {
     dispatch({
       type: POSTS_LOADING,
     })
 
-    const res = await axios.get(`https://www.reddit.com/r/popular.json`)
+    const res = await axios.get(
+      `https://www.reddit.com/r/${shownSubreddit}.json`
+    )
 
     const posts = res.data.data.children.map((post: any) => ({
       subreddit: post.data.subreddit,
