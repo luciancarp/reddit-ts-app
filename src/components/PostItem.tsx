@@ -43,10 +43,13 @@ const PostItem = ({ posts, title, subreddit, num_comments, author }: Props) => {
 }
 
 const Container = styled.div`
-  margin: 0 0 ${spaces.regular} 0;
+  margin: 0 0 4rem 0;
 
-  background-color: ${(props) => props.theme.highlight};
+  background-color: ${(props) => props.theme.item};
+
   border-radius: 30px;
+  box-shadow: 12px 12px 20px 6px ${(props) => props.theme.secondShadow},
+    -8px -8px 16px 3px ${(props) => props.theme.firstShadow};
 `
 
 const Row = styled.div`

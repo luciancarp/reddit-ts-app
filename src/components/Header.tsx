@@ -47,8 +47,7 @@ const Container = styled.header`
   z-index: 1;
 
   width: 300px;
-  padding: ${spaces.regular};
-  padding-right: ${spaces.wide};
+  padding: 3rem 3rem 0 0;
 `
 
 const ListContainer = styled.ul``
@@ -59,19 +58,33 @@ type SubredditType = {
 
 const Subreddit = styled.li<SubredditType>`
   padding: ${spaces.narrow};
-  margin-bottom: ${spaces.narrow};
+  margin-bottom: 2rem;
   border-radius: 30px;
 
-  background-color: ${(props) => (props.active ? props.theme.highlight : null)};
+  /* background-color: ${(props) =>
+    props.active ? props.theme.highlight : null}; */
 
   cursor: pointer;
 
-  -webkit-transition: background-color 0.2s ease-in-out;
-  transition: background-color 0.2s ease-in-out;
+  /* -webkit-transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out; */
 
-  :hover {
+  /* :hover {
     background-color: ${(props) => props.theme.highlight};
-  }
+  } */
+
+  background-color: ${(props) => (props.active ? null : props.theme.item)};
+
+  box-shadow: 12px 12px 16px 0
+      ${(props) =>
+        props.active
+          ? `${props.theme.secondShadow} inset`
+          : `${props.theme.secondShadow}`},
+    -8px -8px 12px 0
+      ${(props) =>
+        props.active
+          ? `${props.theme.firstShadow} inset`
+          : `${props.theme.firstShadow}`};
 
   display: flex;
   align-items: center;

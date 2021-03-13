@@ -10,6 +10,7 @@ import styled from 'styled-components'
 import PostsHeader from './PostsHeader'
 import ThemeSwitcher from './ThemeSwitcher'
 import PostItem from './PostItem'
+import PostItemPlaceholder from './PostItemPlaceholder'
 
 import { spaces } from '../style/global'
 
@@ -30,20 +31,29 @@ const Posts = ({ getPosts, posts }: Props) => {
       <ThemeSwitcher />
 
       <PostsHeader />
-      <PostsContainer>
-        {posts.posts && (
-          <>
-            {posts.posts.map((post: PostType) => (
-              <PostItem
-                title={post.title}
-                subreddit={post.subreddit}
-                num_comments={post.num_comments}
-                author={post.author}
-              />
-            ))}
-          </>
-        )}
-      </PostsContainer>
+      {!posts.loading && (
+        <PostsContainer>
+          {posts.posts && (
+            <>
+              {posts.posts.map((post: PostType) => (
+                <PostItem
+                  title={post.title}
+                  subreddit={post.subreddit}
+                  num_comments={post.num_comments}
+                  author={post.author}
+                />
+              ))}
+            </>
+          )}
+        </PostsContainer>
+      )}
+
+      {posts.loading && (
+        <>
+          <PostItemPlaceholder />
+          <PostItemPlaceholder />
+        </>
+      )}
     </Container>
   )
 }
@@ -51,7 +61,7 @@ const Posts = ({ getPosts, posts }: Props) => {
 const Container = styled.div``
 
 const PostsContainer = styled.div`
-  padding: ${spaces.narrow};
+  padding: ${spaces.wide};
   margin: ${spaces.wide} 0 ${spaces.wide} 0;
 `
 

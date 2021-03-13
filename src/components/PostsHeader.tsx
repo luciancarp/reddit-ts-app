@@ -29,10 +29,12 @@ const Container = styled.div`
 
   padding: ${spaces.regular} ${spaces.narrow} ${spaces.regular} ${spaces.narrow};
 
-  background-color: ${(props) => props.theme.background};
-  border-style: solid;
+  background-color: ${(props) => props.theme.item};
+  /* border-style: solid;
   border-color: ${(props) => props.theme.text};
-  border-width: 0 0 2px 0;
+  border-width: 0 0 2px 0; */
+  border-radius: 0 0 30px 30px;
+  box-shadow: 0px 0px 16px 6px ${(props) => props.theme.secondShadow};
 
   display: flex;
   flex-direction: row;

@@ -30,7 +30,7 @@ export const screenSizes = {
 }
 
 export const colors = {
-  primary: '#ff4500',
+  primary: '#aaf0d1',
   background: '#1a1a1a',
   backgroundTransp: 'rgba(26, 26, 26, 0.5)',
   text: '#ccc',
@@ -46,25 +46,31 @@ export type ThemeType = {
   primary: string
   background: string
   text: string
-  highlight: string
+  item: string
+  firstShadow: string
+  secondShadow: string
 }
 
 export type ThemesType = ThemeType[]
 
 export const dark = {
   name: ThemeNames.dark,
-  primary: '#ff4500',
-  background: '#000',
+  primary: '#aaf0d1',
+  background: '#292929',
   text: '#eee',
-  highlight: 'rgba(238, 238, 238, 0.3)',
+  item: '#222',
+  firstShadow: 'rgba(100, 100, 100, 0.4)',
+  secondShadow: 'rgba(0, 0, 0, 0.4)',
 }
 
 export const light = {
   name: ThemeNames.light,
-  primary: '#ff4500',
-  background: '#eee',
-  text: '#1a1a1a',
-  highlight: 'rgba(26, 26, 26, 0.3)',
+  primary: '#aaf0d1',
+  background: '#ddd',
+  text: '#333',
+  item: '#eee',
+  firstShadow: 'rgba(255, 255, 255, 0.6)',
+  secondShadow: 'rgba(0, 0, 0, 0.3)',
 }
 
 export const themes: ThemesType = [light, dark]
