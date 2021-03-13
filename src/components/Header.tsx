@@ -26,25 +26,32 @@ const Header = ({ posts, setShownSubreddit }: Props) => {
 
   return (
     <Container>
-      <ul>
+      <ListContainer>
         {subredditList.map((subredditItem) => (
           <Subreddit
             active={posts.shownSubreddit === subredditItem.subreddit}
             onClick={() => selectSubreddit(subredditItem.subreddit)}
           >
-            <h3>{subredditItem.title}</h3>
+            <h2>{subredditItem.title}</h2>
           </Subreddit>
         ))}
-      </ul>
+      </ListContainer>
     </Container>
   )
 }
 
 const Container = styled.header`
-  position: fixed;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 
+  width: 300px;
   padding: ${spaces.regular};
+  padding-right: ${spaces.wide};
 `
+
+const ListContainer = styled.ul``
 
 type SubredditType = {
   active?: boolean

@@ -4,8 +4,9 @@ import { connect, ConnectedProps } from 'react-redux'
 import { RootStore } from '../store'
 
 import Header from './Header'
+import Footer from './Footer'
 
-import { spaces } from '../style/global'
+// import { spaces } from '../style/global'
 
 const mapStateToProps = (state: RootStore) => ({
   posts: state.posts,
@@ -17,8 +18,13 @@ type Props = PropsFromRedux & { children?: React.ReactNode }
 const Layout = ({ posts, children }: Props) => {
   return (
     <Container>
-      <Header />
-      <Content>{children}</Content>
+      <div>
+        <Header />
+      </div>
+      <StyledMain>
+        <Content>{children}</Content>
+        <Footer />
+      </StyledMain>
     </Container>
   )
 }
@@ -26,15 +32,21 @@ const Layout = ({ posts, children }: Props) => {
 const Container = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
 `
 
-const Content = styled.main`
+const StyledMain = styled.main`
+  position: relative;
+
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+`
+
+const Content = styled.div`
   margin: 0 auto;
-
-  max-width: 900px;
-
-  padding-top: ${spaces.regular};
+  max-width: 700px;
 `
 
 export default connector(Layout)

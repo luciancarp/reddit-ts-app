@@ -4,6 +4,10 @@ import { connect, ConnectedProps } from 'react-redux'
 import { getPosts } from '../actions/posts'
 import { PostType } from '../actions/types'
 import { RootStore } from '../store'
+
+import styled from 'styled-components'
+
+import PostsHeader from './PostsHeader'
 import ThemeSwitcher from './ThemeSwitcher'
 
 const mapStateToProps = (state: RootStore) => ({
@@ -19,8 +23,10 @@ const Posts = ({ getPosts, posts }: Props) => {
   }, [getPosts, posts.shownSubreddit])
 
   return (
-    <div>
+    <Container>
       <ThemeSwitcher />
+
+      <PostsHeader />
       {posts.posts && (
         <>
           {posts.posts.map((post: PostType) => (
@@ -33,8 +39,10 @@ const Posts = ({ getPosts, posts }: Props) => {
           ))}
         </>
       )}
-    </div>
+    </Container>
   )
 }
+
+const Container = styled.div``
 
 export default connector(Posts)

@@ -525,16 +525,19 @@ body,
   }
 
   h1 {
-    font-size: ${fontSizes.large};
+    font-size: ${fontSizes.xlarge};
     /* text-align: center; */
   }
 
   h2 { 
-    font-size: ${fontSizes.medium}
+    font-size: ${fontSizes.large}
   }
 
   h3 {
     margin-bottom: ${spaces.narrow};
+
+    font-weight: bold;
+    font-size: ${fontSizes.medium}
   }
 
   p {
