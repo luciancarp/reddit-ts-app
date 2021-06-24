@@ -8,7 +8,6 @@ import { RootStore } from '../store'
 import styled from 'styled-components'
 
 import PostsHeader from './PostsHeader'
-import ThemeSwitcher from './ThemeSwitcher'
 import PostItem from './PostItem'
 import PostItemPlaceholder from './PostItemPlaceholder'
 
@@ -28,8 +27,6 @@ const Posts = ({ getPosts, posts }: Props) => {
 
   return (
     <Container>
-      <ThemeSwitcher />
-
       <PostsHeader />
       {!posts.loading && (
         <PostsContainer>

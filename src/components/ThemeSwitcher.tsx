@@ -27,9 +27,9 @@ const ThemeSwitcher = () => {
 }
 
 const ThemeSwitcherContainer = styled.div`
-  position: absolute;
+  /* position: absolute;
   right: ${spaces.regular};
-  top: ${spaces.regular};
+  top: ${spaces.regular}; */
 
   margin: 0;
   padding: ${spaces.narrow};
